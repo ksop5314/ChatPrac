@@ -47,7 +47,7 @@
 
 <div id="username-page">
   <div class="username-page-container">
-    <h1 class="title">Type your username</h1>
+    <h1 class="title">닉네임 입력</h1>
     <form id="usernameForm" name="usernameForm">
       <div  th:if="${user == null}" class="form-group">
         <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control"/>
@@ -75,11 +75,11 @@
   </div>
   <div class="chat-container">
     <div class="chat-header">
-      <h2>Room-Name : [[${room.roomName}]]</h2>
+      <h2>방제 : [[${room.roomName}]]</h2>
     </div>
-    <div class="connecting">
+<!--    <div class="connecting">
       Connecting...
-    </div>
+    </div>-->
     <ul id="messageArea">
 
     </ul>
