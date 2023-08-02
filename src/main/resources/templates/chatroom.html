@@ -12,26 +12,26 @@
   <title>My Spring WebSocket Chatting</title>
   <link rel="stylesheet" href="/css/chatroom/main.css"/>
   <style>
-    #menu{
-      width: 310px;
+
+    body {
+      width: 500px;
+      height: 800px;
+      margin: 0 auto;
     }
-    button#uploadFile {
-      margin-left: 225px;
-      margin-top: -55px;
-    }
+
     input {
       padding-left: 5px;
       outline: none;
       width: 250px;
       margin-top: 15px;
     }
-    .btn fa fa-download {
-      background-color: DodgerBlue;
-      border: none;
-      color: white;
-      padding: 12px 30px;
-      cursor: pointer;
-      font-size: 20px;
+
+    .primary {
+      border: 1px solid green;
+      border-radius: 9999px;
+      width: 55px;
+      height: 30px;
+      margin-top: 20px;
     }
 
     .input-group{width:80.5%}
@@ -75,7 +75,7 @@
   </div>
   <div class="chat-container">
     <div class="chat-header">
-      <h2>[[${room.roomName}]]</h2>
+      <h2>Room-Name : [[${room.roomName}]]</h2>
     </div>
     <div class="connecting">
       Connecting...
@@ -92,18 +92,6 @@
         </div>
       </div>
     </form>
-
-    <div class="btn-group dropend">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="showMenu" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        파일 업로드
-      </button>
-      <div id="menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <input type="file" id="file">
-        <button type="button" class="btn btn-primary" id="uploadFile" onclick="uploadFile()">저장</button>
-
-      </div>
-    </div>
   </div>
 
 </div>

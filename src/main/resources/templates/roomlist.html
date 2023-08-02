@@ -138,14 +138,14 @@
 
     // 채팅방 입장 시 비밀번호 확인
     function enterRoom(){
-      let $enterPwd = $("#enterPwd").val();
+      let roomPwd = $("#enterPwd").val();
 
       $.ajax({
         type : "post",
         url : "/chat/confirmPwd/"+roomId,
         async : false,
         data : {
-          "roomPwd" : $enterPwd
+          "roomPwd" : roomPwd
         },
         success : function(result){
           // console.log("동작완료")
@@ -244,20 +244,8 @@
 
         <tr th:each="room : ${list}">
           <span class="hidden" th:id="${room.roomName}"></span>
-          <td th:if="${room.secretChk}">
+          <td>
             <a href="#enterRoomModal" data-bs-toggle="modal" data-target="#enterRoomModal" th:data-id="${room.roomId}">[[${room.roomName}]]</a>
-          </td>
-          <td th:if="${!room.secretChk}">
-            <!-- thymeleaf 의 변수를 onclick 에 넣는 방법 -->
-            <a th:href="@{/chat/room(roomId=${room.roomId})}" th:roomId="${room.roomId}" onclick="return chkRoomUserCnt(this.getAttribute('roomId'));">[[${room.roomName}]]</a>
-          </td>
-          <td>
-                        <span th:if="${room.secretChk}">
-                            🔒︎
-                        </span>
-          </td>
-          <td>
-            <span class="badge bg-primary rounded-pill">[[${room.userCount}]]/[[${room.maxUserCnt}]]</span>
           </td>
           <td>
             <button class="btn btn-primary btn-sm" id="configRoom" data-bs-toggle="modal" data-bs-target="#confirmPwdModal" th:data-id="${room.roomId}">채팅방 설정</button>
