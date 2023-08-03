@@ -227,7 +227,7 @@
 
     <div th:if="${user == null}" class="row">
       <div class="col">
-        <a href="/chatlogin"><button type="button" class="btn btn-primary">로그인하기</button></a>
+        <a href="/chat/chatlogin"><button type="button" class="btn btn-primary">로그인하기</button></a>
       </div>
     </div>
     <h5 th:if="${user != null}">
@@ -246,6 +246,12 @@
           <span class="hidden" th:id="${room.roomName}"></span>
           <td>
             <a href="#enterRoomModal" data-bs-toggle="modal" data-target="#enterRoomModal" th:data-id="${room.roomId}">[[${room.roomName}]]</a>
+          </td>
+          <td>
+            <div> *비밀번호 필요* </div>
+          </td>
+          <td>
+            <div> [[${room.userCount}]] 명 </div>
           </td>
           <td>
             <button class="btn btn-primary btn-sm" id="configRoom" data-bs-toggle="modal" data-bs-target="#confirmPwdModal" th:data-id="${room.roomId}">채팅방 설정</button>

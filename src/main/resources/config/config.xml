@@ -3,5 +3,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.chatprac.dto.ChatDTO" alias="chatDTO"/>
+        <typeAlias type="com.example.chatprac.dto.ChatRoom" alias="chatRoom"/>
     </typeAliases>
 </configuration>

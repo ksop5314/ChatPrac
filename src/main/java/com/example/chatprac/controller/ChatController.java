@@ -44,7 +44,7 @@ public class ChatController {
         headerAccessor.getSessionAttributes().put("userUUID", userUUID);
         headerAccessor.getSessionAttributes().put("roomId", chat.getRoomId());
 
-        chat.setMessage(chat.getSender() + " 님 입장!!");
+        chat.setMessage(chat.getSender() + " 님이 입장했습니다.");
         template.convertAndSend("/sub/chat/room/" + chat.getRoomId(), chat);
 
     }
@@ -85,7 +85,7 @@ public class ChatController {
             ChatDTO chat = ChatDTO.builder()
                     .type(ChatDTO.MessageType.LEAVE)
                     .sender(username)
-                    .message(username + " 님 퇴장!!")
+                    .message(username + " 님이 방에서 나갔습니다.")
                     .build();
 
             template.convertAndSend("/sub/chat/room/" + roomId, chat);
@@ -131,5 +131,10 @@ public class ChatController {
         log.info("동작확인 {}", userName);
 
         return userName;
+    }
+
+    @GetMapping("/chat/chatlogin")
+    public String chatlogin(){
+        return "/chatlogin";
     }
 }
